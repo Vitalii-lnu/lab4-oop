@@ -18,7 +18,7 @@ public:
         : Magic(damage, cooldown, manaCost), effectDuration(effectDuration), attackSpeed(attackSpeed)
     {}
 
-    double DealDamage(double hp);
+    double DealDamage(double hp) override;
 
 
 public:
