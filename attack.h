@@ -3,7 +3,7 @@
 
 class Attack
 {
-protected:
+private:
     double damage;
     double cooldown; 
 

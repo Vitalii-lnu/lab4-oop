@@ -5,8 +5,18 @@
 #include <thread>
 
 
-double Fire::DealDamage(double hp) 
+double Fire::DealMagicDamage(double hp, double* currentMana) 
 {
+    if (!IsEnoughMana(*currentMana))
+    {
+        std::cout << "Not enough mana to cast fire" << std::endl;
+        return hp;
+    }
+
+    std::cout << "Enemy is on fire" << std::endl;
+    
+    *currentMana -= GetManaCost();
+
     int damageTickCountsMax = effectDuration / attackSpeed;
     
     for (int i = 1; i <= damageTickCountsMax; ++i) 
@@ -14,7 +24,7 @@ double Fire::DealDamage(double hp)
         std::this_thread::sleep_for(std::chrono::milliseconds((int)attackSpeed));
 
         double oldHp = hp;
-        hp -= damage;
+        hp -= GetDamage();
 
         std::cout << "Dealing fire damage (Tick " << i << "/" << damageTickCountsMax 
                   << "): HP " << oldHp << " -> " << hp << std::endl;
@@ -25,11 +35,11 @@ double Fire::DealDamage(double hp)
 }
 
 
-double Fire::GetEffectDuration()
+double Fire::GetEffectDuration() const
 {
     return effectDuration;
 }
-double Fire::GetAttackSpeed()
+double Fire::GetAttackSpeed() const
 {
     return attackSpeed;
 }

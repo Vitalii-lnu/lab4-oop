@@ -7,17 +7,24 @@ class Magic : protected Attack
 {
 private:
     double manaCost;
+
+    using Attack::DealDamage;
+
 public:
     Magic() : Attack() {}
 
-    Magic(double damage, double cooldown, double manaCost) : Attack(damage, cooldown) {}
+    Magic(double damage, double cooldown, double manaCost) : Attack(damage, cooldown), manaCost(manaCost) {}
 
-    double DealDamage(double hp) override;
+    virtual double DealMagicDamage(double hp, double* currentMana);
+
+
+protected:
+    bool IsEnoughMana(double currentMana) const;
 
 
 // Getters/Setters
-private:
-    double GetManaCost();
+public:
+    double GetManaCost() const;
 
     void SetManaCost(double manaCost);
     

@@ -2,12 +2,12 @@
 
 #include <iostream>
 
-WeaponType Physical::GetAttackType()
+WeaponType Physical::GetAttackType() const
 {
     return type;
 }
 
-char* Physical::WeaponTypeToString()
+const char* Physical::WeaponTypeToString() const
 {
     switch (type)
     {
@@ -43,5 +43,5 @@ double Physical::DealDamage(double hp)
     std::cout << "Dealing physical damage using " << WeaponTypeToString() << std::endl;
 
     
-    return hp - damage;
+    return hp - GetDamage();
 }

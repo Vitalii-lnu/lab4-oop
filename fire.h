@@ -1,11 +1,10 @@
 #ifndef FIRE_H
 #define FIRE_H
 
-#include "attack.h"
 #include "magic.h"
 
 
-class Fire : private Magic
+class Fire : protected Magic
 {
 private:
     double effectDuration;
@@ -18,13 +17,13 @@ public:
         : Magic(damage, cooldown, manaCost), effectDuration(effectDuration), attackSpeed(attackSpeed)
     {}
 
-    double DealDamage(double hp) override;
+    double DealMagicDamage(double hp, double* currentMana) override;
 
 
 public:
 
-    double GetEffectDuration();
-    double GetAttackSpeed();
+    double GetEffectDuration() const;
+    double GetAttackSpeed() const;
 
     void SetEffectDuration(double effectDuration);
     void SetAttackSpeed(double attackSpeed);

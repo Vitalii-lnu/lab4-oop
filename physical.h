@@ -6,7 +6,7 @@
 
 enum WeaponType
 {
-    Undefined = -1, Sword= 0, Spear, Bow 
+    Undefined = -1, Sword = 0, Spear, Bow 
 };
 
 class Physical : private Attack
@@ -14,7 +14,7 @@ class Physical : private Attack
 private:
     WeaponType type;
 
-    char* WeaponTypeToString();    
+    const char* WeaponTypeToString() const;    
 
 public:
     Physical() : Attack() {}
@@ -28,7 +28,7 @@ public:
 
 // Getters/Setters
 public:
-    WeaponType GetAttackType();
+    WeaponType GetAttackType() const;
 
     void SetAttackType(WeaponType type);
 
