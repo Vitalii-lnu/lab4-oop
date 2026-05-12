@@ -23,7 +23,8 @@ public:
 
     void SetExplosionDamage(double explosionDamage);
 
-
+    void Print();
+    void Print(const char* line);
 };
 
 

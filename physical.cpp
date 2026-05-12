@@ -16,11 +16,11 @@ const char* Physical::WeaponTypeToString() const
         break;
 
     case WeaponType::Spear:
-        return "Sword";
+        return "Spear";
         break;
     
     case WeaponType::Bow:
-        return "Sword";
+        return "Bow";
         break;
 
     case WeaponType::Undefined:

@@ -27,7 +27,7 @@ public:
 
     void SetDamage(double damage);
     void SetCooldown(double cooldown);
-
+    
 
 };
 

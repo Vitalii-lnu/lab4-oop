@@ -32,3 +32,13 @@ void Fireball::SetExplosionDamage(double explosionDamage)
 {
     this->explosionDamage = explosionDamage;
 }
+
+void Fireball::Print()
+{
+    std::cout << "No matter the room size, I cast fireball" << std::endl;
+}
+
+void Fireball::Print(const char* line)
+{
+    std::cout << line << std::endl;
+}
