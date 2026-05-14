@@ -1,19 +1,28 @@
 #ifndef ATTACK_H
 #define ATTACK_H
 
+#include <iostream>
+
 class Attack
 {
-private:
+protected:
     double damage;
     double cooldown; 
 
 
 public:
 
-    Attack() : damage(0), cooldown(0) {}
-    Attack(double damage, double cooldown)
-        : damage(damage), cooldown(cooldown)
-    { }
+    Attack() : damage(0), cooldown(0) {
+        std::cout << "[+] Constructor: Attack (Default)\n";
+    }
+
+    Attack(double d, double cd) : damage(d), cooldown(cd) {
+        std::cout << "[+] Constructor: Attack (Parametrized)\n";
+    }
+
+    virtual ~Attack() {
+        std::cout << "[-] Destructor: Attack\n";
+    }
 
     virtual double DealDamage(double hp);
 

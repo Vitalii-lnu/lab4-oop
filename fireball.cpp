@@ -11,7 +11,10 @@ double Fireball::DealMagicDamage(double hp, double* currentMana)
         return hp;        
     }
 
-    std::cout << "Fireball exploded! Fire effect is applied on enemy" << std::endl;
+
+    // "Fireball exploded! Fire effect is applied on enemy"
+    std::cout << GetNotification() << std::endl;
+    
     hp -= explosionDamage;
 
     hp = Fire::DealMagicDamage(hp, currentMana); // inside is fire effect logic (it reduces mana inside)

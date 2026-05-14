@@ -13,7 +13,7 @@ double Fire::DealMagicDamage(double hp, double* currentMana)
         return hp;
     }
 
-    std::cout << "Enemy is on fire" << std::endl;
+    std::cout << notification << std::endl;
     
     *currentMana -= GetManaCost();
 
@@ -44,6 +44,11 @@ double Fire::GetAttackSpeed() const
     return attackSpeed;
 }
 
+const char* Fire::GetNotification() const
+{
+    return notification;
+}
+
 
 void Fire::SetEffectDuration(double effectDuration)
 {
@@ -53,4 +58,9 @@ void Fire::SetEffectDuration(double effectDuration)
 void Fire::SetAttackSpeed(double attackSpeed)
 {
     this->attackSpeed = attackSpeed;
+}
+
+void Fire::SetNotificaton(const char* line)
+{
+    this->notification = line;
 }

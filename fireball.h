@@ -11,8 +11,8 @@ private:
 public:
     Fireball() : Fire() {}
 
-    Fireball(double damage, double cooldown, double manaCost, double effectDuration, double attackSpeed, double explosionDamage)
-        : Fire(damage, cooldown, manaCost, effectDuration, attackSpeed), explosionDamage(explosionDamage)
+    Fireball(double damage, double cooldown, double manaCost, double effectDuration, double attackSpeed, const char* notification, double explosionDamage)
+        : Fire(damage, cooldown, manaCost, effectDuration, attackSpeed, notification), explosionDamage(explosionDamage)
     {}
 
     double DealMagicDamage(double hp, double* currentMana) override;

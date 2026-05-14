@@ -9,19 +9,23 @@ enum WeaponType
     Undefined = -1, Sword = 0, Spear, Bow 
 };
 
-class Physical : private Attack
+class Physical : virtual public Attack
 {
-private:
+protected:
     WeaponType type;
 
     const char* WeaponTypeToString() const;    
 
 public:
-    Physical() : Attack() {}
-
-    Physical(double damage, double cooldown, WeaponType type)
-        : Attack(damage, cooldown), type(type)
-    {}
+    Physical() : Attack() {
+        std::cout << "[+] Constructor: Physical\n";
+    }
+    Physical(double damage, double cooldown, WeaponType type) : Attack(damage, cooldown), type(type) {
+        std::cout << "[+] Constructor: Physical (Parametrized)\n";
+    }
+    ~Physical() {
+        std::cout << "[-] Destructor: Physical\n";
+    }
 
     double DealDamage(double hp) override;
 

@@ -1,6 +1,6 @@
 #include "attack.h"
 
-#include <iostream>
+
 
 double Attack::DealDamage(double hp)
 {

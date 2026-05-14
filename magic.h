@@ -3,7 +3,7 @@
 
 #include "attack.h"
 
-class Magic : protected Attack
+class Magic : virtual public Attack
 {
 private:
     double manaCost;
@@ -11,10 +11,20 @@ private:
     using Attack::DealDamage;
 
 public:
-    Magic() : Attack() {}
+    
+    Magic() : Attack() {
+        std::cout << "[+] Constructor: Magic\n";
+    }
+    
+    Magic(double damage, double cooldown, double manaCost) : Attack(damage, cooldown), manaCost(manaCost) {
+        std::cout << "[+] Constructor: Magic (Parametrized)\n";
+    }
+    
+    ~Magic() {
+        std::cout << "[-] Destructor: Magic\n";
+    }
 
-    Magic(double damage, double cooldown, double manaCost) : Attack(damage, cooldown), manaCost(manaCost) {}
-
+    
     virtual double DealMagicDamage(double hp, double* currentMana);
 
 
